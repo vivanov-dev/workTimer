@@ -39,7 +39,7 @@ html {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 5.5em 0;
+  padding: 3em 0;
 }
 
 .container::before {
@@ -50,17 +50,6 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-  right: 0;
-}
-
-.container::after {
-  content: '';
-  display: block;
-  background: url('/pattern-hills.svg') top right / 100% 100% no-repeat;
-  height: 25%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   right: 0;
 }
 
@@ -120,6 +109,15 @@ html {
   color: var(--color-red);
   font-size: 2em;
   position: relative;
+}
+
+footer {
+  background: url('/pattern-hills.svg') top right / 100% 100% no-repeat;
+  height: 25%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 @media (max-width: 1023px) {
