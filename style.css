@@ -112,12 +112,15 @@ html {
 }
 
 footer {
-  background: url('/pattern-hills.svg') top right / 100% 100% no-repeat;
-  height: 25%;
+  height: 3em;
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
+  background-image: url('/pattern-hills.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
 }
 
 @media (max-width: 1023px) {
