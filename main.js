@@ -5,7 +5,16 @@ const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 const captionElement = document.getElementById('caption');
 
-const countdown = function () {
+function zeroPadding(time) {
+  return time < 10 ? '0' + time : time;
+}
+
+function updateViewportHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+function countdown() {
   const presentDate = new Date().getTime();
   const timeDifference = launchDate - presentDate;
 
@@ -23,12 +32,15 @@ const countdown = function () {
   } else {
     if (captionElement) captionElement.innerText = '🎉Congratulations!🎉';
   }
-};
-
-function zeroPadding(time) {
-  return time < 10 ? '0' + time : time;
 }
 
-setInterval(countdown, 1000);
+function removeListeners() {
+  window.removeEventListener('resize', updateViewportHeight);
+}
 
+window.addEventListener('resize', updateViewportHeight);
+window.addEventListener('beforeunload', removeListeners);
+
+updateViewportHeight();
+setInterval(countdown, 1000);
 countdown();
