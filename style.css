@@ -32,7 +32,7 @@ html {
 
 .container {
   min-width: 320px;
-  height: 100lvh;
+  min-height: 100dvh;
   width: 100%;
   overflow: hidden;
   background-color: var(--color-very-dark-blue);
