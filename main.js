@@ -25,10 +25,12 @@ function countdown() {
     const minutes = Math.floor((diffInSeconds % 3600) / 60);
     const seconds = diffInSeconds % 60;
 
-    if (daysElement) daysElement.innerText = zeroPadding(days);
-    if (hoursElement) hoursElement.innerText = zeroPadding(hours);
-    if (minutesElement) minutesElement.innerText = zeroPadding(minutes);
-    if (secondsElement) secondsElement.innerText = zeroPadding(seconds);
+    daysElement.innerText = zeroPadding(days);
+    hoursElement.innerText = zeroPadding(hours);
+    minutesElement.innerText = zeroPadding(minutes);
+    secondsElement.innerText = zeroPadding(seconds);
+
+    requestAnimationFrame(countdown);
   } else {
     if (captionElement) captionElement.innerText = '🎉Congratulations!🎉';
   }
@@ -38,9 +40,15 @@ function removeListeners() {
   window.removeEventListener('resize', updateViewportHeight);
 }
 
-window.addEventListener('resize', updateViewportHeight);
-window.addEventListener('beforeunload', removeListeners);
+function init() {
+  window.addEventListener('resize', updateViewportHeight);
+  window.addEventListener('beforeunload', removeListeners);
 
-updateViewportHeight();
-setInterval(countdown, 1000);
-countdown();
+  setInterval(countdown, 1000);
+  updateViewportHeight();
+}
+
+init();
+
+
+
