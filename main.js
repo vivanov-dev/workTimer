@@ -1,4 +1,4 @@
-const launchDate = new Date('Sept 7 2024').getTime();
+const launchDate = new Date('Sept 4 2024 23:00').getTime();
 const daysElement = document.getElementById('days');
 const hoursElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
