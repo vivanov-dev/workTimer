@@ -1,9 +1,19 @@
-const launchDate = new Date('Sept 7 2024 18:00').getTime();
+const launchDate = new Date('Sept 7 2024 13:00').getTime();
+const box = document.getElementById("box");
 const daysElement = document.getElementById('days');
 const hoursElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 const captionElement = document.getElementById('caption');
+let myInterval;
+
+// async function loadModule() {
+//   try {
+//     await import('/quiz.js');
+//   } catch (error) {
+//     console.error('Error loading the module:', error);
+//   }
+// }
 
 function zeroPadding(time) {
   return time < 10 ? '0' + time : time;
@@ -29,10 +39,10 @@ function countdown() {
     hoursElement.innerText = zeroPadding(hours);
     minutesElement.innerText = zeroPadding(minutes);
     secondsElement.innerText = zeroPadding(seconds);
-
-    requestAnimationFrame(countdown);
   } else {
-    if (captionElement) captionElement.innerText = '🎉Congratulations!🎉';
+    box.style.display = "none";
+    clearInterval(myInterval);
+    // loadModule();
   }
 }
 
@@ -44,7 +54,7 @@ function init() {
   window.addEventListener('resize', updateViewportHeight);
   window.addEventListener('beforeunload', removeListeners);
 
-  setInterval(countdown, 1000);
+  myInterval = setInterval(countdown, 1000);
   updateViewportHeight();
 }
 
