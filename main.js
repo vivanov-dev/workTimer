@@ -1,10 +1,11 @@
-const launchDate = new Date('Sept 7 2024 18:00').getTime();
+const launchDate = new Date('Sept 7 2024 13:00').getTime();
 const box = document.getElementById("box");
 const daysElement = document.getElementById('days');
 const hoursElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 const captionElement = document.getElementById('caption');
+const loaderElement = document.getElementById('loader-wrapper');
 let myInterval;
 
 async function loadModule() {
@@ -56,6 +57,11 @@ function init() {
 
   myInterval = setInterval(countdown, 1000);
   updateViewportHeight();
+
+  setTimeout(() => {
+    loaderElement.style.opacity = 0;
+    loaderElement.style.visibility = "hidden";
+  }, 1000);
 }
 
 init();
