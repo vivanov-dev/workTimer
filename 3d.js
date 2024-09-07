@@ -24,7 +24,7 @@ function init() {
     scene.add(directionalLight);
 
     const loader = new GLTFLoader();
-    loader.load('room.glb', function (gltf) {
+    loader.load('/room.glb', function (gltf) {
         const model = gltf.scene;
 
         const boundingBox = new THREE.Box3().setFromObject(model);
